@@ -1,16 +1,19 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import ProductsList from '../components/ProductsList'
 
-const ProductsPage = () => (
-	<Layout>
-		<SEO title="Page two" />
-		<h1>Hi from the Products page</h1>
-		<p>Welcome to Products page</p>
-		<Link to="/">Go back to the homepage</Link>
-	</Layout>
-)
+// import styled from 'styled-components'
+// import { colors, pxToRem } from '../theme/helpers'
+
+const ProductsPage = () => {
+	return (
+		<Layout>
+			<SEO title="Home" />
+			<ProductsList />
+		</Layout>
+	)
+}
 
 export default ProductsPage

@@ -15,7 +15,13 @@ const Navigation = ({ className }) => {
 				<li>
 					<Link to="/infosContact/">Infos & Contact</Link>
 				</li>
-				<li>Voir le panier</li>
+				<li>
+					<button className="snipcart-checkout">
+						<span role="img" aria-label="Caddie">
+							🛒 Cart
+						</span>
+					</button>
+				</li>
 			</ul>
 		</nav>
 	)

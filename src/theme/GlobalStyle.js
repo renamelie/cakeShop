@@ -23,6 +23,11 @@ const Global = createGlobalStyle`
 	  background-size: cover;
   }
 
+  button {
+		background-color: transparent;
+		border: 1px solid transparent;
+	}
+
 `
 
 export default Global

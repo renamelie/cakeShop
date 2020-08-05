@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+
+import { pxToRem } from '../theme/helpers'
 import styled from 'styled-components'
 
 import backgroundDots from '../images/blueDots.jpg'
@@ -8,6 +10,7 @@ import GlobalStyle from '../theme/GlobalStyle'
 import './layout.css'
 
 import Header from './header'
+import Footer from './Footer'
 import Navigation from './Navigation'
 
 const Container = styled.div`
@@ -20,7 +23,7 @@ const Container = styled.div`
 `
 
 const Main = styled.main`
-	/* background-image: url(../images/blueDots.jpg); */
+	padding: ${pxToRem(50)} 0;
 `
 
 const Layout = ({ children }) => {
@@ -39,6 +42,7 @@ const Layout = ({ children }) => {
 			<div
 				id="snipcart"
 				data-api-key="OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz"
+				data-currency="EUR"
 				hidden
 			></div>
 
@@ -51,11 +55,7 @@ const Layout = ({ children }) => {
 			<Container>
 				<Main>{children}</Main>
 			</Container>
-			<footer>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href="https://www.renamelie.fr">Ren Amélie</a>
-			</footer>
+			<Footer />
 		</>
 	)
 }
