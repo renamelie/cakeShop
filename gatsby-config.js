@@ -47,28 +47,28 @@ module.exports = {
 				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
 			},
 		},
-		{
-			resolve: `gatsby-plugin-google-fonts-v2`,
-			options: {
-				fonts: [
-					{
-						family: 'Roboto Slab',
-						variable: true,
-						weights: ['200..900'],
-					},
-					{
-						family: 'Montserrat',
-						variable: true,
-						weights: ['100..900'],
-					},
-					{
-						family: 'Dancing+Script',
-						variable: true,
-						weights: ['400..700'],
-					},
-				],
-			},
-		},
+		// {
+		// 	resolve: `gatsby-plugin-google-fonts-v2`,
+		// 	options: {
+		// 		fonts: [
+		// 			{
+		// 				family: 'Roboto Slab',
+		// 				variable: true,
+		// 				weights: ['200..900'],
+		// 			},
+		// 			{
+		// 				family: 'Montserrat',
+		// 				variable: true,
+		// 				weights: ['100..900'],
+		// 			},
+		// 			{
+		// 				family: 'Dancing+Script',
+		// 				variable: true,
+		// 				weights: ['400..700'],
+		// 			},
+		// 		],
+		// 	},
+		// },
 		{
 			resolve: `gatsby-source-datocms`,
 			options: {
