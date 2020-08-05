@@ -1,7 +1,7 @@
 {
-  "name": "Cake Shop",
+  "name": "cakeshop",
   "private": true,
-  "description": "Cake Sohp Store",
+  "description": "Cake Shop Store",
   "version": "0.1.0",
   "author": "Ren Amélie <ren.amelie@gmail.com>",
   "dependencies": {
