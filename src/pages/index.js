@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import styled from 'styled-components'
-import { colors } from '../theme/helpers'
+import { colors, pxToRem } from '../theme/helpers'
 
 const Main = styled.main`
 	display: grid;
@@ -15,17 +15,41 @@ const Main = styled.main`
 	grid-auto-rows: max-content;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 1em;
+`
 
-	.grid-item {
-		background-color: ${colors.white};
+const Article = styled.article`
+	background-color: ${colors.white};
+	border-radius: 10px;
+	padding: 20px;
+
+	h2,
+	p,
+	a {
+		font-family: 'Montserrat', sans-serif;
 		color: ${colors.black};
-		border-radius: 10px;
-		padding: 20px;
+		font-weight: 400;
+		margin: ${pxToRem(18)};
+		text-align: center;
 	}
 
-	.grid-item > a {
-		color: #000;
-		font-size: 1.5rem;
+	h2 {
+		font-size: ${pxToRem(24)};
+	}
+
+	.buttonAdd {
+		background-color: ${colors.accent};
+		padding: ${pxToRem(18)};
+		text-align: center;
+	}
+
+	a {
+		color: ${colors.primary};
+		font-size: ${pxToRem(18)};
+	}
+
+	p {
+		font-size: ${pxToRem(18)};
+		text-align: right;
 	}
 `
 
@@ -38,12 +62,24 @@ const IndexPage = ({ data }) => {
 			<SEO title="Home" />
 			<Main>
 				{products.map(({ node: product }) => (
-					<article key={product.id} className="grid-item">
-						<h2>{product.name}</h2>
+					<Article key={product.id}>
 						<Img fluid={product.image.fluid}></Img>
+						<h2>{product.name}</h2>
 						<p>{`${product.price} €`}</p>
-						{/* <a href="#">Ajouter au panier</a> */}
-					</article>
+						<div className="buttonAdd">
+							<a
+								href="/"
+								className="snipcart-add-item"
+								data-item-id={product.id}
+								data-item-price={product.price}
+								data-item-image={product.image.url}
+								data-item-name={product.name}
+								data-item-url="/"
+							>
+								Ajouter au panier
+							</a>
+						</div>
+					</Article>
 				))}
 			</Main>
 		</Layout>
@@ -57,6 +93,7 @@ export const query = graphql`
 		allDatoCmsProduct {
 			edges {
 				node {
+					id
 					name
 					price
 					image {

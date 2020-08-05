@@ -2,7 +2,7 @@ const products = require('./src/products')
 
 module.exports = {
 	siteMetadata: {
-		title: `Biscuit & Cake`,
+		title: `Cake Shop`,
 		description: `Biscuit & Cake Shop Store`,
 		author: `Ren Amélie`,
 		products: [...products],
@@ -23,6 +23,16 @@ module.exports = {
 			resolve: `gatsby-source-datocms`,
 			options: {
 				apiToken: `d7144cc0efd6cbb7ffa185f1ff5074`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-snipcartv3`,
+			options: {
+				apiKey: `OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz`,
+				autopop: true,
+				js: 'https://cdn.snipcart.com/themes/v3.0.18/default/snipcart.js',
+				jquery: false,
+				styles: 'https://cdn.snipcart.com/themes/v3.0.18/default/snipcart.css',
 			},
 		},
 		{

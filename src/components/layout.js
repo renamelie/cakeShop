@@ -36,6 +36,12 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
+			<div
+				id="snipcart"
+				data-api-key="OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz"
+				hidden
+			></div>
+
 			<GlobalStyle />
 
 			<Header siteTitle={data.site.siteMetadata.title} />
