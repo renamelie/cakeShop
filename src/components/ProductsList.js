@@ -9,7 +9,7 @@ const ProductsGrid = styled.div`
 	display: grid;
 	/* Define Auto Row size - même hauteur pour tous */
 	grid-auto-rows: max-content;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
 	grid-gap: 1em;
 `
 
@@ -88,7 +88,7 @@ const ProductsList = () => {
 							data-item-name={product.name}
 							data-item-url="/"
 						>
-							Ajouter au panier
+							Add
 						</a>
 					</div>
 				</Article>

@@ -10,7 +10,7 @@ import ProductsList from '../components/ProductsList'
 const ProductsPage = () => {
 	return (
 		<Layout>
-			<SEO title="Home" />
+			<SEO title="Products Page" />
 			<ProductsList />
 		</Layout>
 	)

@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { media } from '../theme/helpers'
+
+import ModalMenu from './ModalMenu'
 
 const Navigation = ({ className }) => {
 	return (
 		<nav className={className}>
-			<ul>
+			<ul className="ulNav">
 				<li>
 					<Link to="/">Home</Link>
 				</li>
@@ -15,14 +18,13 @@ const Navigation = ({ className }) => {
 				<li>
 					<Link to="/infosContact/">Infos & Contact</Link>
 				</li>
-				<li>
-					<button className="snipcart-checkout">
-						<span role="img" aria-label="Caddie">
-							🛒 Cart
-						</span>
-					</button>
-				</li>
 			</ul>
+			<ModalMenu />
+			<button className="snipcart-checkout caddie">
+				<span role="img" aria-label="Caddie">
+					🛒 Cart
+				</span>
+			</button>
 		</nav>
 	)
 }
@@ -35,9 +37,19 @@ export default styled(Navigation)`
 	border-top: 1px solid #e6d3e5;
 	border-bottom: 1px solid #e6d3e5;
 
-	ul {
-		display: flex;
-		margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	${media.small`
+		.ulNav {
+			display: flex !important;
+		}
+	`}
+
+	.ulNav {
+		display: none;
+		margin: 0;
 		padding: 0 0.5rem;
 	}
 
@@ -55,9 +67,10 @@ export default styled(Navigation)`
 		font-weight: 400;
 	}
 
-	li:last-child {
+	.caddie {
+		padding: 0.3rem 0.5rem;
+		border-left: 1px solid #e6d3e5;
 		border-right: 1px solid #e6d3e5;
-		margin-left: auto;
-		font-weight: 600;
+		font-weight: 500;
 	}
 `

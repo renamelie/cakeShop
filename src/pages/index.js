@@ -9,7 +9,7 @@ import ProductsList from '../components/ProductsList'
 
 const IndexPage = () => (
 	<Layout>
-		<SEO title="Page two" />
+		<SEO title="HomePage" />
 		<h1>Hi !</h1>
 		<p>Welcome to my cakeShop.</p>
 		<ProductsList />
