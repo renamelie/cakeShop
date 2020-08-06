@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Styled from 'styled-components'
 import { colors, pxToRem } from '../theme/helpers'
 
 const ContactForm = ({ className }) => {
-	const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
-	const [message, setMessage] = useState('')
+	// const [name, setName] = useState('')
+	// const [email, setEmail] = useState('')
+	// const [message, setMessage] = useState('')
 
 	// const onNameChange = e => {
 	// 	setName(e.target.value)
@@ -30,31 +30,35 @@ const ContactForm = ({ className }) => {
 		<form className={className} name="Contact Form" data-netlify="true">
 			<input type="hidden" name="form-name" value="Contact Form" />
 			<div className="formGroup">
-				<label htmlFor="email">
+				<label htmlFor="name">
 					<input
 						className="form-control"
 						type="text"
 						placeholder="Name"
-						value={name}
+						// value={name}
+						name="name"
+					/>
+				</label>
+			</div>
+			<div className="formGroup">
+				<label htmlFor="email">
+					<input
+						className="form-control"
+						type="email"
+						placeholder="Email"
+						// value={email}
+						name="email"
 					/>
 				</label>
 			</div>
 			<div className="formGroup">
 				<label htmlFor="message">
-					<input
+					<textarea
 						className="form-control"
-						type="email"
-						placeholder="Email"
-						value={email}
+						placeholder="Message"
+						// value={message}
 					/>
 				</label>
-			</div>
-			<div className="formGroup">
-				<textarea
-					className="form-control"
-					placeholder="Message"
-					value={message}
-				/>
 			</div>
 			<div className="buttonForm">
 				<button type="submit" className="btn btn-primary">
@@ -68,7 +72,6 @@ const ContactForm = ({ className }) => {
 export default Styled(ContactForm)`
 	min-width: 300px;
 	width: 80%;
-	background-color: ${({ theme }) => theme.backgroundColorContact};
 	padding: ${pxToRem(20)};
 	border-radius: ${pxToRem(20)};
 
@@ -92,13 +95,13 @@ export default Styled(ContactForm)`
 
 	}
 
-	.formGroup > *, input,  .buttonForm > * {
+	.formGroup > *, input, textarea,  .buttonForm > * {
 		border-color: transparent;
 		border-radius: ${pxToRem(10)};
 		transition: 0.5s;
 	}
 
-	.formGroup > *, input {
+	.formGroup > *, input, textarea {
 		font-family: 'Montserrat', sans-serif;
 		color: ${colors.black};
 		background-color: ${colors.white};
@@ -126,6 +129,5 @@ export default Styled(ContactForm)`
 
 	button:hover {
 		color: ${colors.black};
-		background-color: ${({ theme }) => theme.frontColor};
 	}
 `
