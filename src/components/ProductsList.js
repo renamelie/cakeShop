@@ -39,10 +39,6 @@ const Article = styled.article`
 		text-align: center;
 	}
 
-	.buttonClass {
-		color: blue;
-	}
-
 	a {
 		font-size: ${pxToRem(24)};
 		display: flex;
@@ -85,23 +81,19 @@ const ProductsList = () => {
 					<Img fluid={product.image.fluid}></Img>
 					<h2>{product.name}</h2>
 					<p>{`${product.price} €`}</p>
-					<IconContext.Provider
-						value={{ style: { fontSize: '30px', color: 'rgb(0, 123, 255)' } }}
-					>
-						<div className="buttonAdd">
-							<a
-								href="/"
-								className="snipcart-add-item"
-								data-item-id={product.id}
-								data-item-price={product.price}
-								data-item-image={product.image.url}
-								data-item-name={product.name}
-								data-item-url="/"
-							>
-								<GrAddCircle />
-							</a>
-						</div>
-					</IconContext.Provider>
+					<div className="buttonAdd">
+						<a
+							href="/"
+							className="snipcart-add-item"
+							data-item-id={product.id}
+							data-item-price={product.price}
+							data-item-image={product.image.url}
+							data-item-name={product.name}
+							data-item-url="/"
+						>
+							<GrAddCircle />
+						</a>
+					</div>
 				</Article>
 			))}
 		</ProductsGrid>

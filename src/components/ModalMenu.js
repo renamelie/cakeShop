@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../theme/helpers'
-import { IoIosMenu, IoMdClose } from 'react-icons/Io'
+import { IoIosMenu, IoMdClose } from 'react-icons/io'
 
 function ModalMenu({ className }) {
 	const [isModalOpen, setIsModalOpen] = useState(false)
