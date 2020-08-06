@@ -1,7 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
+import { IconContext } from 'react-icons'
+import { GrAddCircle } from 'react-icons/gr'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { colors, pxToRem } from '../theme/helpers'
 
@@ -19,8 +21,7 @@ const Article = styled.article`
 	padding: 20px;
 
 	h2,
-	p,
-	a {
+	p {
 		font-family: 'Montserrat', sans-serif;
 		color: ${colors.black};
 		font-weight: 400;
@@ -39,8 +40,10 @@ const Article = styled.article`
 	}
 
 	a {
-		color: ${colors.primary};
-		font-size: ${pxToRem(18)};
+		font-size: ${pxToRem(24)};
+		display: flex;
+		margin: 0;
+		justify-content: center;
 	}
 
 	p {
@@ -78,19 +81,21 @@ const ProductsList = () => {
 					<Img fluid={product.image.fluid}></Img>
 					<h2>{product.name}</h2>
 					<p>{`${product.price} €`}</p>
-					<div className="buttonAdd">
-						<a
-							href="/"
-							className="snipcart-add-item"
-							data-item-id={product.id}
-							data-item-price={product.price}
-							data-item-image={product.image.url}
-							data-item-name={product.name}
-							data-item-url="/"
-						>
-							Add
-						</a>
-					</div>
+					<IconContext.Provider value={{ color: 'blue' }}>
+						<div className="buttonAdd">
+							<a
+								href="/"
+								className="snipcart-add-item"
+								data-item-id={product.id}
+								data-item-price={product.price}
+								data-item-image={product.image.url}
+								data-item-name={product.name}
+								data-item-url="/"
+							>
+								<GrAddCircle stroke="#fff" />
+							</a>
+						</div>
+					</IconContext.Provider>
 				</Article>
 			))}
 		</ProductsGrid>

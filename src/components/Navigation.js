@@ -22,7 +22,7 @@ const Navigation = ({ className }) => {
 			<ModalMenu />
 			<button className="snipcart-checkout caddie">
 				<span role="img" aria-label="Caddie">
-					🛒 Cart
+					🛒
 				</span>
 			</button>
 		</nav>
