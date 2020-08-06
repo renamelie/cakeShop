@@ -5,26 +5,35 @@ import { media } from '../theme/helpers'
 
 import ModalMenu from './ModalMenu'
 
+const Container = styled.div`
+	max-width: 1000px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`
 const Navigation = ({ className }) => {
 	return (
 		<nav className={className}>
-			<ul className="ulNav">
-				<li>
-					<Link to="/">Home</Link>
-				</li>
-				<li>
-					<Link to="/products/">Products</Link>
-				</li>
-				<li>
-					<Link to="/infosContact/">Infos & Contact</Link>
-				</li>
-			</ul>
-			<ModalMenu />
-			<button className="snipcart-checkout caddie">
-				<span role="img" aria-label="Caddie">
-					🛒
-				</span>
-			</button>
+			<Container>
+				<ul className="ulNav">
+					<li>
+						<Link to="/">Home</Link>
+					</li>
+					<li>
+						<Link to="/products/">Products</Link>
+					</li>
+					<li>
+						<Link to="/infosContact/">Infos & Contact</Link>
+					</li>
+				</ul>
+				<ModalMenu />
+				<button className="snipcart-checkout caddie">
+					<span role="img" aria-label="Caddie">
+						🛒
+					</span>
+				</button>
+			</Container>
 		</nav>
 	)
 }
@@ -36,10 +45,6 @@ export default styled(Navigation)`
 	padding: 0.3rem 0.5rem;
 	border-top: 1px solid #e6d3e5;
 	border-bottom: 1px solid #e6d3e5;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 
 	${media.small`
 		.ulNav {

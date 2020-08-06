@@ -13,17 +13,13 @@ import Header from './header'
 import Footer from './Footer'
 import Navigation from './Navigation'
 
-const Container = styled.div`
+const Main = styled.main`
+	max-width: 1000px;
 	margin: 0 auto;
-	max-width: 960;
-	padding: 0 1.0875rem 1.45rem;
+	padding: ${pxToRem(50)} 1.45rem;
 	background-image: url(${backgroundDots});
 	background-repeat: repeat;
 	background-size: cover;
-`
-
-const Main = styled.main`
-	padding: ${pxToRem(50)} 0;
 `
 
 const Layout = ({ children }) => {
@@ -38,7 +34,7 @@ const Layout = ({ children }) => {
 	`)
 
 	return (
-		<>
+		<div>
 			<div
 				id="snipcart"
 				data-api-key="OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz"
@@ -52,11 +48,10 @@ const Layout = ({ children }) => {
 
 			<Navigation />
 
-			<Container>
-				<Main>{children}</Main>
-			</Container>
+			<Main>{children}</Main>
+
 			<Footer />
-		</>
+		</div>
 	)
 }
 

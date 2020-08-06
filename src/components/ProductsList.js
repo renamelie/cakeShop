@@ -39,6 +39,10 @@ const Article = styled.article`
 		text-align: center;
 	}
 
+	.buttonClass {
+		color: blue;
+	}
+
 	a {
 		font-size: ${pxToRem(24)};
 		display: flex;
@@ -81,7 +85,9 @@ const ProductsList = () => {
 					<Img fluid={product.image.fluid}></Img>
 					<h2>{product.name}</h2>
 					<p>{`${product.price} €`}</p>
-					<IconContext.Provider value={{ color: 'blue' }}>
+					<IconContext.Provider
+						value={{ style: { fontSize: '30px', color: 'rgb(0, 123, 255)' } }}
+					>
 						<div className="buttonAdd">
 							<a
 								href="/"
@@ -92,7 +98,7 @@ const ProductsList = () => {
 								data-item-name={product.name}
 								data-item-url="/"
 							>
-								<GrAddCircle stroke="#fff" />
+								<GrAddCircle />
 							</a>
 						</div>
 					</IconContext.Provider>
