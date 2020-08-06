@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { IconContext } from 'react-icons'
 import { GrAddCircle } from 'react-icons/gr'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
