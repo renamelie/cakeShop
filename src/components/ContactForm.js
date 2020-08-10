@@ -70,19 +70,15 @@ const ContactForm = ({ className }) => {
 }
 
 export default Styled(ContactForm)`
-	min-width: 300px;
-	width: 80%;
 	padding: ${pxToRem(20)};
 	border-radius: ${pxToRem(20)};
 
 	textarea, input {
-		min-width: 300px;
-		background-color: ${colors.darkGrey};
 		padding: ${pxToRem(10)};
 	}
 
 	textarea:focus, input:focus {
-		box-shadow: 0 0 5px 2px ${colors.accentPlus};
+		box-shadow: 0 0 5px 2px pink;
 	}
 
 	textarea {
@@ -99,11 +95,8 @@ export default Styled(ContactForm)`
 		border-color: transparent;
 		border-radius: ${pxToRem(10)};
 		transition: 0.5s;
-	}
 
-	.formGroup > *, input, textarea {
 		font-family: 'Montserrat', sans-serif;
-		color: ${colors.black};
 		background-color: ${colors.white};
 		width: 100%;
 		outline: none;

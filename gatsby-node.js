@@ -1,7 +1,28 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+exports.createPages = ({ graphql, actions }) => {
+	const { createPage } = actions
+	return graphql(`
+		{
+			allDatoCmsProduct {
+				edges {
+					node {
+						slug
+					}
+				}
+			}
+		}
+	`).then(result => {
+		const posts = result.data.allDatoCmsProduct.edges
+
+		posts.forEach(post => {
+			createPage({
+				path: post.node.slug,
+				component: path.resolve(`./src/templates/post.js`),
+				context: {
+					slug: post.node.slug,
+				},
+			})
+		})
+	})
+}

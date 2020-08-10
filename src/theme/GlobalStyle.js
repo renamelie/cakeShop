@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-// import { colors } from './helpers'
+import { colors } from './helpers'
 import backgroundDots from '../images/blueDots.jpg'
 
 const Global = createGlobalStyle`
@@ -9,6 +9,7 @@ const Global = createGlobalStyle`
     padding: 0;
     text-decoration: none;
     list-style: none;
+    outline: none;
   }
 
   body {
@@ -18,9 +19,10 @@ const Global = createGlobalStyle`
     color: black;
     background: white;
 
-    background-image: url(${backgroundDots});
+    background-color: ${colors.accent};
+    /* background-image: url(${backgroundDots});
 	  background-repeat: repeat;
-	  background-size: cover;
+	  background-size: cover; */
   }
 
   button {

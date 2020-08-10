@@ -1,7 +1,8 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
-import { GrAddCircle } from 'react-icons/gr'
+import { IconContext } from 'react-icons'
+import { FaCartArrowDown } from 'react-icons/fa'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { colors, pxToRem } from '../theme/helpers'
@@ -10,7 +11,7 @@ const ProductsGrid = styled.div`
 	display: grid;
 	/* Define Auto Row size - même hauteur pour tous */
 	grid-auto-rows: max-content;
-	grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 	grid-gap: 1em;
 `
 
@@ -29,7 +30,8 @@ const Article = styled.article`
 	}
 
 	h2 {
-		font-size: ${pxToRem(24)};
+		font-size: ${pxToRem(18)};
+		font-weight: 300;
 	}
 
 	.buttonAdd {
@@ -39,15 +41,23 @@ const Article = styled.article`
 	}
 
 	a {
-		font-size: ${pxToRem(24)};
+		font-size: ${pxToRem(30)};
 		display: flex;
 		margin: 0;
 		justify-content: center;
 	}
 
 	p {
-		font-size: ${pxToRem(18)};
-		text-align: right;
+		font-size: ${pxToRem(16)};
+		text-align: center;
+	}
+
+	.iconClass {
+		color: ${colors.white};
+	}
+
+	.iconClass:hover {
+		color: ${colors.primary};
 	}
 `
 
@@ -58,6 +68,7 @@ const ProductsList = () => {
 				edges {
 					node {
 						id
+						slug
 						name
 						price
 						image {
@@ -78,21 +89,25 @@ const ProductsList = () => {
 			{products.map(({ node: product }) => (
 				<Article key={product.id}>
 					<Img fluid={product.image.fluid}></Img>
-					<h2>{product.name}</h2>
+					<Link to={`/${product.slug}`}>
+						<h2>{product.name}</h2>
+					</Link>
 					<p>{`${product.price} €`}</p>
-					<div className="buttonAdd">
-						<a
-							href="/"
-							className="snipcart-add-item"
-							data-item-id={product.id}
-							data-item-price={product.price}
-							data-item-image={product.image.url}
-							data-item-name={product.name}
-							data-item-url="/"
-						>
-							<GrAddCircle />
-						</a>
-					</div>
+					<IconContext.Provider value={{ className: 'iconClass' }}>
+						<div className="buttonAdd">
+							<a
+								href="/"
+								className="snipcart-add-item"
+								data-item-id={product.id}
+								data-item-price={product.price}
+								data-item-image={product.image.url}
+								data-item-name={product.name}
+								data-item-url="/"
+							>
+								<FaCartArrowDown />
+							</a>
+						</div>
+					</IconContext.Provider>
 				</Article>
 			))}
 		</ProductsGrid>

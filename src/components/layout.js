@@ -17,9 +17,9 @@ const Main = styled.main`
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: ${pxToRem(50)} 1.45rem;
-	background-image: url(${backgroundDots});
+	/* background-image: url(${backgroundDots});
 	background-repeat: repeat;
-	background-size: cover;
+	background-size: cover; */
 `
 
 const Layout = ({ children }) => {
