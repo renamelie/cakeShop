@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../theme/helpers'
@@ -13,6 +14,9 @@ const Container = styled.div`
 	align-items: center;
 `
 const Navigation = ({ className }) => {
+	const { state } = useContext(SnipcartContext)
+	const { cartTotal } = state
+
 	return (
 		<nav className={className}>
 			<Container>
@@ -32,6 +36,8 @@ const Navigation = ({ className }) => {
 					<span role="img" aria-label="Caddie">
 						🛒
 					</span>
+
+					<span className="snipcart-total-price"> {cartTotal} €</span>
 				</button>
 			</Container>
 		</nav>

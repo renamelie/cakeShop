@@ -36,6 +36,28 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-plugin-snipcart-advanced`,
+			options: {
+				version: '3.0.15',
+				publicApiKey:
+					'OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz',
+				defaultLang: 'fr',
+				currency: 'eur',
+				openCartOnAdd: false,
+				locales: {
+					fr: {
+						actions: {
+							checkout: 'Valider le panier',
+						},
+					},
+				},
+				innerHTML: `
+					<billing section="bottom">
+							<!-- Customization goes here -->
+					</billing>`,
+			},
+		},
+		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `gatsby-starter-default`,

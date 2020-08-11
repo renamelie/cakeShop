@@ -88,7 +88,7 @@ const ProductsList = () => {
 		<ProductsGrid>
 			{products.map(({ node: product }) => (
 				<Article key={product.id}>
-					<Img fluid={product.image.fluid}></Img>
+					<Img fluid={product.image.fluid} />
 					<Link to={`/${product.slug}`}>
 						<h2>{product.name}</h2>
 					</Link>
