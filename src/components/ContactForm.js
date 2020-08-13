@@ -77,9 +77,9 @@ export default Styled(ContactForm)`
 		padding: ${pxToRem(10)};
 	}
 
-	textarea:focus, input:focus {
+	/* textarea:focus, input:focus {
 		box-shadow: 0 0 5px 2px pink;
-	}
+	} */
 
 	textarea {
 		resize : none;

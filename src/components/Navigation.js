@@ -36,8 +36,9 @@ const Navigation = ({ className }) => {
 					<span role="img" aria-label="Caddie">
 						🛒
 					</span>
-
-					<span className="snipcart-total-price"> {cartTotal} €</span>
+					{'  '}
+					<span className="snipcart-total-price">0</span>
+					{/* <span className="snipcart-total-price">  {cartTotal} €</span> */}
 				</button>
 			</Container>
 		</nav>

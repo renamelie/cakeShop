@@ -1,11 +1,11 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
-import { IconContext } from 'react-icons'
-import { FaCartArrowDown } from 'react-icons/fa'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { colors, pxToRem } from '../theme/helpers'
+
+import AddSnipcart from '../components/AddSnipcart'
 
 const ProductsGrid = styled.div`
 	display: grid;
@@ -20,6 +20,9 @@ const Article = styled.article`
 	border-radius: 10px;
 	padding: 20px;
 
+	display: flex;
+	flex-direction: column;
+
 	h2,
 	p {
 		font-family: 'Montserrat', sans-serif;
@@ -31,33 +34,11 @@ const Article = styled.article`
 
 	h2 {
 		font-size: ${pxToRem(18)};
-		font-weight: 300;
-	}
-
-	.buttonAdd {
-		background-color: ${colors.accent};
-		padding: ${pxToRem(18)};
-		text-align: center;
-	}
-
-	a {
-		font-size: ${pxToRem(30)};
-		display: flex;
-		margin: 0;
-		justify-content: center;
+		font-weight: 400;
 	}
 
 	p {
 		font-size: ${pxToRem(16)};
-		text-align: center;
-	}
-
-	.iconClass {
-		color: ${colors.white};
-	}
-
-	.iconClass:hover {
-		color: ${colors.primary};
 	}
 `
 
@@ -88,26 +69,12 @@ const ProductsList = () => {
 		<ProductsGrid>
 			{products.map(({ node: product }) => (
 				<Article key={product.id}>
-					<Img fluid={product.image.fluid} />
 					<Link to={`/${product.slug}`}>
-						<h2>{product.name}</h2>
+						<Img fluid={product.image.fluid} />
 					</Link>
+					<h2>{product.name}</h2>
 					<p>{`${product.price} €`}</p>
-					<IconContext.Provider value={{ className: 'iconClass' }}>
-						<div className="buttonAdd">
-							<a
-								href="/"
-								className="snipcart-add-item"
-								data-item-id={product.id}
-								data-item-price={product.price}
-								data-item-image={product.image.url}
-								data-item-name={product.name}
-								data-item-url="/"
-							>
-								<FaCartArrowDown />
-							</a>
-						</div>
-					</IconContext.Provider>
+					<AddSnipcart product={product} bgColor={colors.accent} />
 				</Article>
 			))}
 		</ProductsGrid>
