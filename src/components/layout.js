@@ -1,17 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 
 import { pxToRem } from '../theme/helpers'
 import styled from 'styled-components'
 
 import backgroundDots from '../images/blueDots.jpg'
-import GlobalStyle from '../theme/GlobalStyle'
 import './layout.css'
 
-import Header from './header'
 import Footer from './Footer'
-import Navigation from './Navigation'
 
 const Main = styled.main`
 	max-width: 1000px;
@@ -23,16 +19,6 @@ const Main = styled.main`
 `
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`)
-
 	return (
 		<div>
 			<div
@@ -41,12 +27,6 @@ const Layout = ({ children }) => {
 				data-currency="EUR"
 				hidden
 			></div>
-
-			<GlobalStyle />
-
-			<Header siteTitle={data.site.siteMetadata.title} />
-
-			<Navigation />
 
 			<Main>{children}</Main>
 

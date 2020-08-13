@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import styled from 'styled-components'
@@ -96,13 +96,22 @@ const HeaderSection = ({ siteTitle }) => {
 	const { state } = useContext(SnipcartContext)
 	const { userStatus, cartQuantity } = state
 
-	// console.log(state)
+	const data = useStaticQuery(graphql`
+		query SiteTitleQuery {
+			site {
+				siteMetadata {
+					title
+				}
+			}
+		}
+	`)
+
 	return (
 		<Header>
 			<div className="headerContent">
 				<div className="headerLeft">
 					<h1>
-						<Link to="/">{siteTitle}</Link>
+						<Link to="/">{data.site.siteMetadata.title}</Link>
 					</h1>
 				</div>
 				<div className="headerRight">

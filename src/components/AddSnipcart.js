@@ -5,7 +5,6 @@ import { FaCartArrowDown } from 'react-icons/fa'
 import { colors, pxToRem } from '../theme/helpers'
 
 const AddSnipcart = ({ className, product, bgColor }) => {
-	console.log(bgColor)
 	return (
 		<IconContext.Provider value={{ className: 'iconClass' }}>
 			<button
