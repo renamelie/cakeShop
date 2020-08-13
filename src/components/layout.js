@@ -21,13 +21,6 @@ const Main = styled.main`
 const Layout = ({ children }) => {
 	return (
 		<div>
-			<div
-				id="snipcart"
-				data-api-key="OTgwMGMyZmYtYjU1Ni00MGExLTlhMTQtYmI0Njk0YWFhMWQ4NjM3MzIwNTY3NjU5ODgxNDUz"
-				data-currency="EUR"
-				hidden
-			></div>
-
 			<Main>{children}</Main>
 
 			<Footer />
