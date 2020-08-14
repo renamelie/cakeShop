@@ -18,7 +18,7 @@ const ProductsGrid = styled.div`
 const Article = styled.article`
 	background-color: ${colors.white};
 	border-radius: 10px;
-	padding: 20px;
+	padding: 10px;
 
 	display: flex;
 	flex-direction: column;
